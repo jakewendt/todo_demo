@@ -1,0 +1,17 @@
+<table class='sortable' width='100%' border='1' id='list'>
+<thead>
+<tr>
+<!-- Can't sort on the Done column due to its contents -->
+<th class='sorttable_nosort'><b>Done</b></th>
+<th><b>Category</b></th>
+<th><b>Name</b></th>
+<th><b>Priority</b></th>
+<th><b>Created</b></th>
+<th><b>Due</b></th>
+</tr>
+</thead>
+
+<tbody>
+<%= render :partial => 'item', :collection => @items %>
+</tbody>
+</table>

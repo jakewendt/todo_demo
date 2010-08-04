@@ -1,0 +1,24 @@
+<h1>Listing categories</h1>
+
+<table>
+<tr>
+<th><b>Name</b></th>
+</tr>
+  
+<% for category in @categories %>
+<tr <%= "style='background-color: #{h(category.color)};'" if category.color %> >
+<td><%=h category.name %></td>
+
+<td><%= link_to_image("edit_button", 
+	{ :controller => 'categories', :action => "edit", :id => category }) %></td>
+<td><%= link_to_image("delete_button", 
+	{ :controller => 'categories', :action => "destroy", :id => category }, 
+	:confirm => "Are you sure you want to delete this item?",
+	:post => true ) %></td>
+</tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New category', :action => 'new' %>

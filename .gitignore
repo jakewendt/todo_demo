@@ -1,0 +1,14 @@
+.svn/
+versions/
+db/*.sqlite3
+db/seeds.rb
+db/schema.rb
+log/*.log
+coverage
+coverage.data
+db/*_structure.sql
+tmp/cache/*
+tmp/sessions/*
+tmp/sockets/*
+config/database.yml
+jw3todos.sql

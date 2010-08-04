@@ -1,0 +1,12 @@
+<div id='show' class='center'>
+<table>
+<tr><td><b>User name</b> </td><td> <%= @user.name %></td>
+<tr><td><b>Real name</b> </td><td> <%= @user.realname %></td>
+<tr><td><b>e Mail</b> </td><td> <%= @user.email %></td>
+<tr><td><b>Info</b> </td><td> <%= @user.info %></td>
+<tr><td><b>Created at</b> </td><td> <%= @user.created_at.to_s( :short ) %></td>
+<tr><td><b>Updated at</b> </td><td> <%= @user.updated_at.to_s( :short ) %></td>
+</table>
+
+<%= link_to 'Edit', :action => 'edit', :id => @user %>
+</div>

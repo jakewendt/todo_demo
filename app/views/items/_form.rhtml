@@ -1,0 +1,29 @@
+<%= error_messages_for 'item' %>
+
+<!--[form:item]-->
+<table>
+<tr>
+<td><b>Complete? </b></td>
+<td><%= check_box "item", "done" %></td>
+</tr>
+<tr>
+<td><b>Date due: </b></td>
+<td><%= date_select "item", "due_date", :use_month_numbers => true %></td>
+</tr>
+<tr>
+<td><b>Name</b></td>
+<td><%= text_field 'item', 'name', 'cols' => 20  %></td>
+</tr>
+<tr>
+<td><b>Category: </b></td>
+<td><select id="item_category_id" name="item[category_id]">
+<%= options_from_collection_for_select @categories, "id", "name", @item.category_id %>
+</select> </td>
+</tr>
+<tr>
+<td><b>Priority: </b></td>
+<td><%= select "item","priority",[1,2,3,4,5]  %></td>
+</tr>
+</table>
+<!--[eoform:item]-->
+

@@ -1,0 +1,12 @@
+<div id='menu' class='center'>
+<ul>
+<li><%= link_to "sign out", :controller => 'users', :action => 'logout'  %></li>
+<li><%= link_to "account", :controller => 'users', :action => 'show', :id => session[:user_id] %></li>
+<li><%= link_to "items",  :controller => 'items', :action => 'list'  %></li>
+<li><%= link_to "categories",  :controller => 'categories', :action => 'list'  %></li>
+<li><%= link_to "new item",  :controller => 'items', :action => 'new'  %></li>
+<% if session[:user_id] == 1 -%>
+<li><%= link_to "users",  :controller => 'users', :action => 'list'  %></li>
+<% end -%>
+</ul>
+</div>

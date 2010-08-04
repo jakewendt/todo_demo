@@ -1,0 +1,13 @@
+<div id='login' class='center'>
+	<%= start_form_tag(:controller => 'users', :action => 'send_login') %>
+		<%= text_field('user', 'name', 'size' => 15, 
+			'value' => 'user_name', 
+			'class' => 'default'
+			) %><br />
+		<%= password_field('user', 'password', 'size' => 15, 
+			'value' => 'user_password',
+			'class' => 'default password'
+			) %>
+		<%= submit_tag("sign in", 'id' => 'signin_submit') %><br />
+	<%= end_form_tag %>
+</div><!-- signin -->

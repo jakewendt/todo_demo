@@ -1,0 +1,11 @@
+<%= "Done, Category, Name, Priority, Created, Due" %><br />
+
+<% for item in @items %>
+<%= "#{item.done.to_s}, 
+	#{item.category.name.to_s},
+	\"#{item.name.to_s.gsub(/["]/, '\\\"')}\",
+	#{item.priority.to_s},
+	#{item.created_at.strftime('%Y/%m/%d').to_s},
+	#{item.due_date.strftime('%Y/%m/%d').to_s}"
+%><br />
+<% end %>

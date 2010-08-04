@@ -1,0 +1,6 @@
+#page << "$('item[#{params[:id]}]').className = ( #{@done} ) ? 'done' : '' ;"
+page << "if ( #{@done} ) {"
+page << "$('item[#{params[:id]}]').addClassName('done');"
+page << "} else {"
+page << "$('item[#{params[:id]}]').removeClassName('done');"
+page << "}"

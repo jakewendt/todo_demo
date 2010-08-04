@@ -1,0 +1,32 @@
+<div id='list' class='center'>
+<h2>Listing users</h2>
+<table>
+<% for user in @users -%>
+  <tr>
+	<td><%= user.name %></td>
+	<td><%= user.realname %></td>
+	<td><%= link_to 'Show', :action => 'show', :id => user %></td>
+	<td>
+		<% if user.is_editable_by?( session[:user_id] ) -%>
+			<%= link_to 'Edit', :action => 'edit', :id => user %>
+		<% else -%>
+			&nbsp;
+		<% end -%>
+	</td>
+	<td>
+		<% if user.is_destroyable_by?( session[:user_id] ) -%>
+			<%= link_to 'Destroy', 
+				{ :action => 'destroy', :id => user }, 
+				:confirm => 'Are you sure?', :post => true %>
+		<% else -%>
+			&nbsp;
+		<% end -%>
+	</td>
+  </tr>
+<% end -%>
+</table>
+<%= link_to 'Previous page', { :page => @user_pages.current.previous } if @user_pages.current.previous %>
+<%= link_to 'Next page', { :page => @user_pages.current.next } if @user_pages.current.next %> 
+<br />
+<%= link_to 'New user', {:action => 'new'}, :post => true %>
+</div>

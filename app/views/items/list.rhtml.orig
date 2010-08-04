@@ -1,0 +1,41 @@
+<h1>Listing items</h1>
+
+<table width='100%' border=1>
+<tr>
+<th><b>Done</b></th>
+<th><b><%= link_to 'Category', :category => @category, :sortby => 'category_id' %></b></th>
+<th><b><%= link_to 'Name',     :category => @category, :sortby => 'name' %></b></th>
+<th><b><%= link_to 'Priority', :category => @category, :sortby => 'priority' %></b></th>
+<th><b><%= link_to 'Due',      :category => @category, :sortby => 'due_date DESC' %></b></th>
+</tr>
+
+<% for item in @items %>
+<tr id="item[<%= item.id.to_s %>]" <%= "class='done'" if item["done"] -%> >
+<td class='cc'>
+<%= check_box_tag( "item[" + item.id.to_s + "][done]","1",item["done"],
+	:onclick => remote_function(
+		:update => "item["+item.id.to_s+"]",
+		:url => { :action => :mark_as_done },
+		:with => "'item["+item.id.to_s+"][done]='+$F('item[" + item.id.to_s + "][done]')"
+	)
+) %>
+</td>
+<td class='cc'><%= link_to h(item.category.name), :action => 'list', :category => item.category.id, :id => '' %></td>
+<td><%=h item.name %></td>
+<td class='cc'><%= item.priority %></td>
+<td class='cc'><%= item.due_date %></td>
+
+<td><%= link_to_image("edit_button", 
+	{ :controller => 'items', :action => "edit", :id => item }) %></td>
+
+<td><%= link_to_image("delete_button", 
+	{ :controller => 'items', :action => "destroy", :id => item }, 
+	:confirm => "Are you sure you want to delete this item?",
+	:post => true ) %></td>
+</tr>
+<% end %>
+</table>
+
+<%= link_to 'New item', :action => 'new' %>
+<%= link_to 'Previous page', { :page => @item_pages.current.previous } if @item_pages.current.previous %>
+<%= link_to 'Next page', { :page => @item_pages.current.next } if @item_pages.current.next %> 

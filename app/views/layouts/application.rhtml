@@ -1,0 +1,28 @@
+<html>
+<head>
+<title> myToDo </title>
+<%= stylesheet_link_tag 'scaffold' %>
+<%= stylesheet_link_tag 'todo' %>
+<%= javascript_include_tag 'prototype' %>
+<%= javascript_include_tag 'defaultInput' %>
+<%= javascript_include_tag 'sorttable' %>
+<%= javascript_include_tag 'scriptaculous' %>
+</head>
+<body>
+<div id='header'><img alt="What to do today?" src="/images/whattodotoday.png" /></div>
+<%= render :partial => 'users/menu' %>
+
+<div id='main' class='center'>
+<div id='yield'>
+<% flash.each do |key, msg| -%>
+	<%= content_tag :p, msg, :id => key, :onclick => "this.hide()" %>
+<% end -%>
+<%= yield  -%>
+</div><!-- yield -->
+</div><!-- main -->
+
+<!-- <div id='footer_bar'></div> -->
+<div id='footer'>
+</div><!-- footer -->
+</body>
+</html>

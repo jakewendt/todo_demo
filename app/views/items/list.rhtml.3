@@ -1,0 +1,12 @@
+<table width='100%' border=1 id='list'>
+<tr>
+<th><b><%= link_to 'Done',     :category => @category, :sortby => 'done' %></b></th>
+<th><b><%= link_to 'Category', :category => @category, :sortby => 'category_id' %></b></th>
+<th><b><%= link_to 'Name',     :category => @category, :sortby => 'name' %></b></th>
+<th><b><%= link_to 'Priority', :category => @category, :sortby => 'priority' %></b></th>
+<th><b><%= link_to 'Created',  :category => @category, :sortby => 'created_at DESC' %></b></th>
+<th><b><%= link_to 'Due',      :category => @category, :sortby => 'due_date DESC' %></b></th>
+</tr>
+
+<%= render :partial => 'item', :collection => @items %>
+</table>

@@ -1,0 +1,14 @@
+<div id='menu' class='center'>
+<%= link_to "home",  '/'  %> |
+<% unless session[:user_id] -%>
+<%= link_to "sign up",  :controller => 'users', :action => 'new'  %>
+| <%= link_to "sign in",  :controller => 'users', :action => 'login'  %>
+<% else -%>
+<%= link_to "sign out", :controller => 'users', :action => 'logout'  %>
+| <%= link_to "items",  :controller => 'items', :action => 'list'  %>
+| <%= link_to "categories",  :controller => 'categories', :action => 'list'  %>
+<% if session[:user_id] == 1 -%>
+| <%= link_to "users",  :controller => 'users', :action => 'list'  %>
+<% end -%>
+<% end -%>
+</div>

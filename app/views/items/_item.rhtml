@@ -1,0 +1,30 @@
+<tr id="item[<%= item.id.to_s %>]" 
+<%= "class='done'" if item.done %> 
+<%= "style='background-color: #{h(item.category.color)};'" if item.category.color %>
+>
+<td class='cc'>
+<%= check_box_tag( "item[" + item.id.to_s + "][done]","1",item["done"],
+	:onclick => remote_function(
+		:url => { :controller => 'items', :action => :toggle_done, :id => item },
+		:with => "'done='+$F('item[" + item.id.to_s + "][done]')" 
+	)
+) %>
+</td>
+
+<td class='cc'><%= link_to h(item.category.name), :action => 'list', :category => item.category.id, :id => '' %></td>
+<td><%= sanitize(item.name) %></td>
+<td class='cc'><%= item.priority %></td>
+<td class='cc'><%= item.created_at.strftime("%Y/%m/%d") %></td>
+<td class='cc'><%= item.due_date.strftime("%Y/%m/%d") %></td>
+
+<td><%= link_to_image("edit_button", 
+	{ :controller => 'items', :action => "edit", :id => item }) %></td>
+
+<td><%= image_submit_tag("delete_button", 
+	:onclick => remote_function(
+		:url => { :controller => 'items', :action => "destroy", :id => item },
+		:confirm => "Are you sure you want to delete this item?"
+	)
+)%></td>
+
+</tr>
