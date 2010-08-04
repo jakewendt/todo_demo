@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		unless ( captcha_pass?( params[:code], params[:answer] ) )
+		unless ( captcha_pass?( params[:code]||'', params[:answer]||'' ) )
 			flash[:error] = 'Captcha value was incorrect.'
 			redirect_to( :back )
 			return

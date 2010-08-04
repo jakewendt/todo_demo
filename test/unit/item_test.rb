@@ -1,10 +1,12 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class ItemTest < Test::Unit::TestCase
-  fixtures :items
+	fixtures :items
 
-  # Replace this with your real tests.
-  def test_truth
-    assert true
-  end
+	def test_create
+#		assert_difference('Item.count',1){
+			item = Item.create(:name => 'name')
+			assert !item.new_record?
+#		}
+	end
 end

@@ -4,6 +4,10 @@ Probably my first rails app from a tutorial that I can't remember.
 
 Actually, I think it was the {Four Days on Rails}[http://rails.homelinux.org/] tutorial.
 
+== Requires ...
+
+* mysql apparently
+
 == Gems
 
  rails -v 1.1.6
@@ -12,3 +16,7 @@ Actually, I think it was the {Four Days on Rails}[http://rails.homelinux.org/] t
  actionwebservice -v 1.1.6
  activerecord -v 1.14.4
  activesupport -v 1.3.1
+
+
+
+Copyright (c) 2006 [Jake Wendt], released under the MIT license

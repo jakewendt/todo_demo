@@ -1,10 +1,12 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class UserTest < Test::Unit::TestCase
-  fixtures :users
+	fixtures :users
 
-  # Replace this with your real tests.
-  def test_truth
-    assert true
-  end
+	def test_create
+#		assert_difference('User.count',1){
+			user = User.create(:name => 'name',:password => 'name', :password_confirmation => 'name')
+			assert !user.new_record?
+#		}
+	end
 end
